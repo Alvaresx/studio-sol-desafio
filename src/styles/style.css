@@ -24,6 +24,19 @@ button {
   margin-bottom: 30px;
 }
 
+#container_segments {
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+  height: 200px;
+}
+
+#info_message {
+  text-align: center;
+  font-weight: bold;
+  color: #ff6600;
+}
+
 .restart_button {
   width: 130px;
   height: 42px;

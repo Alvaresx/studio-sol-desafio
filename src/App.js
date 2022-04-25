@@ -34,6 +34,7 @@ function App() {
       document.getElementById("guess_input").disabled = true;
       document.getElementById("container_restart_button").style.display =
         "flex";
+      document.getElementById("info_message").style.color = "#32bf00";
     } else if (inputValue > number) {
       setInfoMessage("É menor");
     } else {
@@ -54,26 +55,8 @@ function App() {
           <div class="divider"></div>
         </div>
 
-        <div
-          class="info_message"
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "#FF6600",
-            fontSize: "16px",
-          }}
-        >
-          {infoMessage}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            columnGap: "15px",
-            justifyContent: "center",
-            height: "200px",
-          }}
-          id="container_segments"
-        ></div>
+        <div id="info_message">{infoMessage}</div>
+        <div id="container_segments"></div>
 
         <div>
           <div id="container_restart_button" class="container_restart_button">
