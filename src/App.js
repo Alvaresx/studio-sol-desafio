@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { handleChangeLed } from "./ChangeLed";
+import { handleChangeLed } from "./ChangeLeds";
+import { handleInputNumbers } from "./InputNumbers";
 import "./styles/style.css";
 function App() {
   const [number, setNumber] = useState(0);
@@ -29,7 +30,6 @@ function App() {
     handleChangeLed(inputValue);
     if (inputValue === number) {
       setInfoMessage("Você acertou!!!");
-      setInputValue("");
       document.getElementById("send_button").disabled = true;
       document.getElementById("guess_input").disabled = true;
       document.getElementById("container_restart_button").style.display =
@@ -39,6 +39,7 @@ function App() {
     } else {
       setInfoMessage("É maior");
     }
+    setInputValue("");
   };
 
   const handleChangeInput = (e) => {
@@ -71,35 +72,8 @@ function App() {
             justifyContent: "center",
             height: "200px",
           }}
-        >
-          <div>
-            <div id="01-segment-a" class="segment segment-a"></div>
-            <div id="01-segment-b" class="segment segment-b"></div>
-            <div id="01-segment-c" class="segment segment-c"></div>
-            <div id="01-segment-d" class="segment segment-d"></div>
-            <div id="01-segment-e" class="segment segment-e"></div>
-            <div id="01-segment-f" class="segment segment-f"></div>
-            <div id="01-segment-g" class="segment segment-g"></div>
-          </div>
-          <div>
-            <div id="02-segment-a" class="segment segment-a"></div>
-            <div id="02-segment-b" class="segment segment-b"></div>
-            <div id="02-segment-c" class="segment segment-c"></div>
-            <div id="02-segment-d" class="segment segment-d"></div>
-            <div id="02-segment-e" class="segment segment-e"></div>
-            <div id="02-segment-f" class="segment segment-f"></div>
-            <div id="02-segment-g" class="segment segment-g"></div>
-          </div>
-          <div>
-            <div id="03-segment-a" class="segment segment-a"></div>
-            <div id="03-segment-b" class="segment segment-b"></div>
-            <div id="03-segment-c" class="segment segment-c"></div>
-            <div id="03-segment-d" class="segment segment-d"></div>
-            <div id="03-segment-e" class="segment segment-e"></div>
-            <div id="03-segment-f" class="segment segment-f"></div>
-            <div id="03-segment-g" class="segment segment-g"></div>
-          </div>
-        </div>
+          id="container_segments"
+        ></div>
 
         <div>
           <div id="container_restart_button" class="container_restart_button">
@@ -112,6 +86,8 @@ function App() {
               id="guess_input"
               class="guess_input"
               placeholder="Digite o palpite"
+              maxLength={3}
+              onKeyPress={(e) => handleInputNumbers(e)}
               onChange={(e) => handleChangeInput(e.target.value)}
             />
             <button
