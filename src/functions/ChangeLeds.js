@@ -1,4 +1,5 @@
 export const handleChangeLed = (data, type) => {
+  const dataStringfy = data.toString();
   const containerSegments = document.getElementById("container_segments");
   containerSegments.innerText = "";
 
@@ -107,8 +108,8 @@ export const handleChangeLed = (data, type) => {
     }
   };
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < dataStringfy.length; i++) {
     const div = document.getElementById("container_segments");
-    div.innerHTML += handleIndentifyNumber(data[i], type);
+    div.innerHTML += handleIndentifyNumber(dataStringfy[i], type);
   }
 };
