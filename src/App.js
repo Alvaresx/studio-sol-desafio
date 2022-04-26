@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { handleChangeLed } from "./ChangeLeds";
-import { handleInputNumbers } from "./InputNumbers";
+import React, { useState } from "react";
+import { handleChangeLed } from "./functions/ChangeLeds";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import InfoMessage from "./components/InfoMessage";
+import Leds from "./components/Leds";
+import api from "./services/api";
 import "./styles/style.css";
 function App() {
   const [number, setNumber] = useState(0);
@@ -8,17 +12,18 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   async function getNumber() {
-    await fetch(
-      "https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.value);
-        setNumber(data.value.toString());
+    await api
+      .get("/rand?min=1&max=300")
+      .then((res) => {
+        console.log(res.data.value);
+        setNumber(res.data.value.toString());
         verifyNumber();
       })
-      .catch(function (err) {
-        console.log(err);
+      .catch((err) => {
+        console.log(err.response.data);
+        handleChangeLed(err.response.data.StatusCode.toString(), "error");
+        setInfoMessage(err.response.data.Error);
+        document.getElementById("info_message").style.color = "#cc3300";
         document.getElementById("container_restart_button").style.display =
           "flex";
         document.getElementById("send_button").disabled = true;
@@ -27,7 +32,6 @@ function App() {
   }
 
   const verifyNumber = () => {
-    handleChangeLed(inputValue);
     if (inputValue === number) {
       setInfoMessage("Você acertou!!!");
       document.getElementById("send_button").disabled = true;
@@ -35,10 +39,13 @@ function App() {
       document.getElementById("container_restart_button").style.display =
         "flex";
       document.getElementById("info_message").style.color = "#32bf00";
+      handleChangeLed(inputValue, "success");
     } else if (inputValue > number) {
       setInfoMessage("É menor");
+      handleChangeLed(inputValue, "active");
     } else {
       setInfoMessage("É maior");
+      handleChangeLed(inputValue, "active");
     }
     setInputValue("");
   };
@@ -47,41 +54,27 @@ function App() {
     setInputValue(e);
   };
 
+  const handleNewGame = () => {
+    setNumber(0);
+    getNumber();
+    document.getElementById("send_button").disabled = false;
+    document.getElementById("guess_input").disabled = false;
+    document.getElementById("container_restart_button").style.display = "none";
+  };
+
   return (
     <>
       <div class="container">
-        <div>
-          <h1 class="title">Qual é o número?</h1>
-          <div class="divider"></div>
-        </div>
-
-        <div id="info_message">{infoMessage}</div>
-        <div id="container_segments"></div>
-
-        <div>
-          <div id="container_restart_button" class="container_restart_button">
-            <button id="restart_button" class="restart_button">
-              Nova partida
-            </button>
-          </div>
-          <div class="container_input_button">
-            <input
-              id="guess_input"
-              class="guess_input"
-              placeholder="Digite o palpite"
-              maxLength={3}
-              onKeyPress={(e) => handleInputNumbers(e)}
-              onChange={(e) => handleChangeInput(e.target.value)}
-            />
-            <button
-              id="send_button"
-              class="send_button"
-              onClick={number === 0 ? getNumber : verifyNumber}
-            >
-              Enviar
-            </button>
-          </div>
-        </div>
+        <Header />
+        <InfoMessage infoMessage={infoMessage} />
+        <Leds />
+        <Footer
+          handleNewGame={handleNewGame}
+          handleChangeInput={handleChangeInput}
+          verifyNumber={verifyNumber}
+          getNumber={getNumber}
+          number={number}
+        />
       </div>
     </>
   );
