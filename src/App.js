@@ -11,6 +11,15 @@ function App() {
   const [infoMessage, setInfoMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
 
+  const actionsSendButton = (isDisabled, color) => {
+    document.getElementById("container_restart_button").style.visibility =
+      "visible";
+    document.getElementById("send_button").disabled = isDisabled;
+    document.getElementById("guess_input").disabled = isDisabled;
+    document.getElementById("info_message").style.color = color;
+    setInputValue("");
+  };
+
   async function getNumber() {
     await api
       .get("/rand?min=1&max=300")
@@ -20,25 +29,16 @@ function App() {
         verifyNumber();
       })
       .catch((err) => {
-        console.log(err.response.data);
         handleChangeLed(err.response.data.StatusCode.toString(), "error");
-        setInfoMessage(err.response.data.Error);
-        document.getElementById("info_message").style.color = "#cc3300";
-        document.getElementById("container_restart_button").style.display =
-          "flex";
-        document.getElementById("send_button").disabled = true;
-        document.getElementById("guess_input").disabled = true;
+        setInfoMessage("Erro");
+        actionsSendButton(true, "#cc3300");
       });
   }
 
   const verifyNumber = () => {
     if (inputValue === number) {
       setInfoMessage("Você acertou!!!");
-      document.getElementById("send_button").disabled = true;
-      document.getElementById("guess_input").disabled = true;
-      document.getElementById("container_restart_button").style.display =
-        "flex";
-      document.getElementById("info_message").style.color = "#32bf00";
+      actionsSendButton(true, "#32bf00");
       handleChangeLed(inputValue, "success");
     } else if (inputValue > number) {
       setInfoMessage("É menor");
@@ -57,14 +57,12 @@ function App() {
   const handleNewGame = () => {
     setNumber(0);
     getNumber();
-    document.getElementById("send_button").disabled = false;
-    document.getElementById("guess_input").disabled = false;
-    document.getElementById("container_restart_button").style.display = "none";
+    actionsSendButton(false, "#262a34");
   };
 
   return (
     <>
-      <div class="container">
+      <div id="container">
         <Header />
         <InfoMessage infoMessage={infoMessage} />
         <Leds />
@@ -74,6 +72,7 @@ function App() {
           verifyNumber={verifyNumber}
           getNumber={getNumber}
           number={number}
+          inputValue={inputValue}
         />
       </div>
     </>
