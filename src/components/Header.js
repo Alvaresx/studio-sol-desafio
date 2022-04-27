@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <div>
-        <h1 id="title">Qual é o número?</h1>
+        <h1 id="title" data-testid="divider">Qual é o número?</h1>
         <div id="divider"></div>
       </div>
     </>

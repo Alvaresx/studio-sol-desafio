@@ -1,9 +1,9 @@
 import React from "react";
 
-function InfoMessage(props) {
+function InfoMessage({infoMessage}) {
   return (
     <>
-      <div id="info_message">{props.infoMessage}</div>
+      <div id="info_message">{infoMessage}</div>
     </>
   );
 }

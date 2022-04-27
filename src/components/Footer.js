@@ -2,12 +2,17 @@ import React from "react";
 import ReloadIcon from "../img/reload-icon.svg";
 import { isNumber } from "../functions/IsNumber";
 
-function Footer(props) {
+function Footer({
+  handleNewGame,
+  inputValue,
+  handleChangeInput,
+  verifyNumber,
+}) {
   return (
     <>
       <div>
-        <div id="container_restart_button">
-          <button id="restart_button" onClick={props.handleNewGame}>
+        <div id="container_restart_button" data-testid="container_restart_button">
+          <button id="restart_button" onClick={handleNewGame}>
             <img src={ReloadIcon} alt="Ícone de recarregar" id="reload_icon" />
             Nova partida
           </button>
@@ -15,14 +20,14 @@ function Footer(props) {
         <div id="container_input_button">
           <input
             id="guess_input"
-            class="guess_input"
+            className="guess_input"
             placeholder="Digite o palpite"
-            value={props.inputValue}
+            value={inputValue}
             onKeyPress={(e) => isNumber(e)}
             maxLength={3}
-            onChange={(e) => props.handleChangeInput(e.target.value)}
+            onChange={(e) => handleChangeInput(e.target.value)}
           />
-          <button id="send_button" onClick={props.verifyNumber}>
+          <button id="send_button" onClick={verifyNumber}>
             Enviar
           </button>
         </div>

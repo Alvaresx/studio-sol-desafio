@@ -73,7 +73,7 @@ function App() {
   const handleNewGame = () => {
     setNumber("");
     setInfoMessage("");
-    actionsSendButton(false, "#262a34", "hidden");
+    actionsSendButton(false, "#ff6600", "hidden");
     handleChangeLed("0", "active");
     getNumber();
   };
@@ -88,8 +88,6 @@ function App() {
           handleNewGame={handleNewGame}
           handleChangeInput={handleChangeInput}
           verifyNumber={verifyNumber}
-          getNumber={getNumber}
-          number={number}
           inputValue={inputValue}
         />
       </div>
