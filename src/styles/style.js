@@ -110,3 +110,123 @@ export const Container = styled.div`
     margin: 20px;
   }
 `;
+
+export const Segment = styled.div`
+  height: 15px;
+  width: 80px;
+  background-color: #ddd;
+  position: relative;
+  border-radius: 6px;
+`;
+
+export const SegmentA = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentB = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  border-top-right-radius: 10px;
+  transform: rotate(90deg);
+  top: 21px;
+  left: 34px;
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentC = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  border-top-left-radius: 10px;
+  transform: rotate(90deg);
+  top: 85px;
+  left: 34px;
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentD = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  transform: rotate(180deg);
+  top: 105px;
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentE = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  border-top-right-radius: 10px;
+  transform: rotate(270deg);
+  top: 55px;
+  right: 34px;
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentF = styled.div`
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  border-top-left-radius: 10px;
+  transform: rotate(270deg);
+  bottom: 39px;
+  right: 34px;
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
+
+export const SegmentG = styled.div`
+  bottom: 14px;
+  left: 3px;
+  width: 74px;
+  clip-path: polygon(0 50%, 12% 0, 88% 0, 100% 50%, 88% 100%, 12% 100%);
+  .active {
+    background-color: #262a34;
+  }
+  .success {
+    background-color: #32bf00;
+  }
+  .error {
+    background-color: #cc3300;
+  }
+`;
