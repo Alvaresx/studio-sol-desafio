@@ -4,7 +4,7 @@ function Leds() {
   return (
     <>
       <div id="container_segments">
-        <div>
+        <div data-testid="div_segments">
           <div id="segment-a" className="segment active"></div>
           <div id="segment-b" className="segment active"></div>
           <div id="segment-c" className="segment active"></div>

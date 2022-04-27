@@ -5,7 +5,7 @@ export const handleChangeLed = (data, type) => {
 
   const handleIndentifyNumber = (data, type) => {
     if (data === "1") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -16,7 +16,7 @@ export const handleChangeLed = (data, type) => {
       </div>
       `;
     } else if (data === "2") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment"></div>
@@ -26,7 +26,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "3") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -36,7 +36,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "4") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -46,7 +46,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "5") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -56,7 +56,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "6") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -66,7 +66,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "7") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -76,7 +76,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment"></div>
       </div>`;
     } else if (data === "8") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -86,7 +86,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "9") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
@@ -96,7 +96,7 @@ export const handleChangeLed = (data, type) => {
       <div id="segment-g" class="segment ${type}"></div>
       </div>`;
     } else if (data === "0") {
-      return `<div>
+      return `<div data-testid="div_segments">
       <div id="segment-a" class="segment ${type}"></div>
       <div id="segment-b" class="segment ${type}"></div>
       <div id="segment-c" class="segment ${type}"></div>
