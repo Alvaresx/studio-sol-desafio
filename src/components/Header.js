@@ -1,11 +1,12 @@
 import React from "react";
+import * as Styled from "../styles/style";
 
 function Header() {
   return (
     <>
       <div>
-        <h1 id="title" data-testid="divider">Qual é o número?</h1>
-        <div id="divider"></div>
+        <Styled.Title>Qual é o número?</Styled.Title>
+        <Styled.Divider data-testid="divider"></Styled.Divider>
       </div>
     </>
   );

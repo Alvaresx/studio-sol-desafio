@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import * as Styled from "./styles/style";
+import GlobalStyle from "./styles/GlobalStyle";
+import { colors } from "./styles/colors";
 import { handleChangeLed } from "./functions/ChangeLeds";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -8,9 +11,14 @@ import api from "./services/api";
 import "./styles/style.css";
 
 function App() {
+  const { error, success, textInfoMessage } = colors;
   const [number, setNumber] = useState("");
   const [infoMessage, setInfoMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [inputClassError, setInputClassError] = useState("");
+  const [textColor, setTextColor] = useState(textInfoMessage);
+  const [visibility, setVisibility] = useState("hidden");
 
   useEffect(() => {
     getNumber();
@@ -25,16 +33,14 @@ function App() {
       .catch((err) => {
         handleChangeLed(err.response.data.StatusCode, "error");
         setInfoMessage("Erro");
-        actionsSendButton(true, "#cc3300", "visible");
+        actionsSendButton(true, error, "visible");
       });
   }
 
   const actionsSendButton = (isDisabled, color, visibility) => {
-    document.getElementById("container_restart_button").style.visibility =
-      visibility;
-    document.getElementById("send_button").disabled = isDisabled;
-    document.getElementById("guess_input").disabled = isDisabled;
-    document.getElementById("info_message").style.color = color;
+    setVisibility(visibility);
+    setIsDisabled(isDisabled);
+    setTextColor(color);
     setInputValue("");
   };
 
@@ -42,7 +48,7 @@ function App() {
     if (inputValue !== "") {
       if (inputValue === number) {
         setInfoMessage("Você acertou!");
-        actionsSendButton(true, "#32bf00", "visible");
+        actionsSendButton(true, success, "visible");
         handleChangeLed(inputValue, "success");
       } else if (inputValue > number) {
         setInfoMessage("É menor");
@@ -52,45 +58,45 @@ function App() {
         handleChangeLed(inputValue, "active");
       }
     } else {
-      document.getElementById("guess_input").classList.add("guess_input_error");
+      setInputClassError("guess_input_error");
     }
-
     setInputValue("");
   };
 
   const handleChangeInput = (e) => {
+    setInputClassError("");
     if (e === "") {
       setInputValue(e);
     } else {
       setInputValue(parseInt(e));
     }
-
-    document
-      .getElementById("guess_input")
-      .classList.remove("guess_input_error");
   };
 
   const handleNewGame = () => {
     setNumber("");
     setInfoMessage("");
-    actionsSendButton(false, "#ff6600", "hidden");
+    actionsSendButton(false, textInfoMessage, "hidden");
     handleChangeLed("0", "active");
     getNumber();
   };
 
   return (
     <>
-      <div id="container">
+      <GlobalStyle />
+      <Styled.Container>
         <Header />
-        <InfoMessage infoMessage={infoMessage} />
+        <InfoMessage infoMessage={infoMessage} textColor={textColor} />
         <Leds />
         <Footer
           handleNewGame={handleNewGame}
           handleChangeInput={handleChangeInput}
           verifyNumber={verifyNumber}
           inputValue={inputValue}
+          isDisabled={isDisabled}
+          inputClassError={inputClassError}
+          visibility={visibility}
         />
-      </div>
+      </Styled.Container>
     </>
   );
 }

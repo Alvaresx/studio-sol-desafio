@@ -1,36 +1,40 @@
 import React from "react";
 import ReloadIcon from "../img/reload-icon.svg";
 import { isNumber } from "../functions/IsNumber";
+import * as Styled from "../styles/style";
 
 function Footer({
   handleNewGame,
   inputValue,
   handleChangeInput,
   verifyNumber,
+  isDisabled,
+  inputClassError,
+  visibility,
 }) {
   return (
     <>
       <div>
-        <div id="container_restart_button" data-testid="container_restart_button">
-          <button id="restart_button" onClick={handleNewGame}>
-            <img src={ReloadIcon} alt="Ícone de recarregar" id="reload_icon" />
+        <Styled.ContainerRestartButton visibility={visibility}>
+          <Styled.RestartButton onClick={handleNewGame}>
+            <Styled.ReloadIcon src={ReloadIcon} alt="Ícone de recarregar" />
             Nova partida
-          </button>
-        </div>
-        <div id="container_input_button">
-          <input
-            id="guess_input"
-            className="guess_input"
+          </Styled.RestartButton>
+        </Styled.ContainerRestartButton>
+        <Styled.ContainerInputButton>
+          <Styled.GuessInput
+            className={`guess_input ${inputClassError}`}
             placeholder="Digite o palpite"
             value={inputValue}
             onKeyPress={(e) => isNumber(e)}
             maxLength={3}
+            disabled={isDisabled}
             onChange={(e) => handleChangeInput(e.target.value)}
           />
-          <button id="send_button" onClick={verifyNumber}>
+          <Styled.SendButton onClick={verifyNumber} disabled={isDisabled}>
             Enviar
-          </button>
-        </div>
+          </Styled.SendButton>
+        </Styled.ContainerInputButton>
       </div>
     </>
   );

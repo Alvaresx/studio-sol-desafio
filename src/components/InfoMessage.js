@@ -1,11 +1,12 @@
 import React from "react";
+import * as Styled from "../styles/style";
 
-function InfoMessage({ infoMessage }) {
+function InfoMessage({ infoMessage, textColor }) {
   return (
     <>
-      <div id="info_message" data-testid="info_message">
+      <Styled.InfoMessage textColor={textColor} data-testid="info_message">
         {infoMessage}
-      </div>
+      </Styled.InfoMessage>
     </>
   );
 }

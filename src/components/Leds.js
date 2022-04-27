@@ -1,9 +1,10 @@
 import React from "react";
+import * as Styled from "../styles/style";
 
 function Leds() {
   return (
     <>
-      <div id="container_segments">
+      <Styled.ContainerSegments id="container_segments">
         <div data-testid="div_segments">
           <div id="segment-a" className="segment active"></div>
           <div id="segment-b" className="segment active"></div>
@@ -13,7 +14,7 @@ function Leds() {
           <div id="segment-f" className="segment active"></div>
           <div id="segment-g" className="segment"></div>
         </div>
-      </div>
+      </Styled.ContainerSegments>
     </>
   );
 }
