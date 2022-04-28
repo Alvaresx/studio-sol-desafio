@@ -1,14 +1,21 @@
 import { render } from "@testing-library/react";
 import Leds from "../components/Leds";
 
-describe("Leds.js", () => {
-  test("should render a div whit seven segments when start the game", () => {
-    const { container } = render(<Leds />);
-    expect(container.getElementsByClassName("segment").length).toBe(7);
-  });
+const arrayActive = [
+  {
+    a: "active",
+    b: "active",
+    c: "active",
+    d: "active",
+    e: "active",
+    f: "active",
+    g: "not_active",
+  },
+];
 
+describe("Leds.js", () => {
   test("should contain six active segments showing the number zero when start the game", () => {
-    const { container } = render(<Leds />);
+    const { container } = render(<Leds arrayActive={arrayActive} />);
     expect(container.getElementsByClassName("active").length).toBe(6);
   });
 });

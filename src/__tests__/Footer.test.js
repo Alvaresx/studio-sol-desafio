@@ -46,4 +46,14 @@ describe("Footer.js", () => {
     userEvent.click(newGameButtonElement);
     expect(mockedHandleNewGame).toHaveBeenCalledTimes(1);
   });
+
+  test("input and send button should not be disabled after clicking new game button", () => {
+    render(<Footer />);
+    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
+    const sendButtonElement = screen.getByText(/Enviar/i);
+    const newGameButtonElement = screen.getByText(/Nova partida/i);
+    userEvent.click(newGameButtonElement);
+    expect(inputElement).not.toBeDisabled();
+    expect(sendButtonElement).not.toBeDisabled();
+  });
 });

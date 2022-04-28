@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import InfoMessage from "./components/InfoMessage";
 import Leds from "./components/Leds";
 import api from "./services/api";
-import "./styles/style.css";
 
 function App() {
   const { error, success, textInfoMessage } = colors;

@@ -15,7 +15,10 @@ function Footer({
   return (
     <>
       <div>
-        <Styled.ContainerRestartButton visibility={visibility}>
+        <Styled.ContainerRestartButton
+          visibility={visibility}
+          data-testid="container_restart_button"
+        >
           <Styled.RestartButton onClick={handleNewGame}>
             <Styled.ReloadIcon src={ReloadIcon} alt="Ícone de recarregar" />
             Nova partida
