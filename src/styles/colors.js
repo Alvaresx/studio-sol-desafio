@@ -3,4 +3,5 @@ export const colors = {
   success: "#32bf00",
   textInfoMessage: "#ff6600",
   ledActive: "#262a34",
+  ledNotActive: "#ddd",
 };
