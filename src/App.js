@@ -19,6 +19,17 @@ function App() {
   const [inputClassError, setInputClassError] = useState("");
   const [textColor, setTextColor] = useState(textInfoMessage);
   const [visibility, setVisibility] = useState("hidden");
+  const [arrayActive, setArrayActive] = useState([
+    {
+      a: "active",
+      b: "active",
+      c: "active",
+      d: "active",
+      e: "active",
+      f: "active",
+      g: "not_active",
+    },
+  ]);
 
   useEffect(() => {
     getNumber();
@@ -31,7 +42,7 @@ function App() {
         setNumber(res.data.value);
       })
       .catch((err) => {
-        handleChangeLed(err.response.data.StatusCode, "error");
+        setArrayActive(handleChangeLed(err.response.data.StatusCode, "error"));
         setInfoMessage("Erro");
         actionsSendButton(true, error, "visible");
       });
@@ -49,13 +60,13 @@ function App() {
       if (inputValue === number) {
         setInfoMessage("Você acertou!");
         actionsSendButton(true, success, "visible");
-        handleChangeLed(inputValue, "success");
+        setArrayActive(handleChangeLed(inputValue, "success"));
       } else if (inputValue > number) {
         setInfoMessage("É menor");
-        handleChangeLed(inputValue, "active");
+        setArrayActive(handleChangeLed(inputValue, "active"));
       } else {
         setInfoMessage("É maior");
-        handleChangeLed(inputValue, "active");
+        setArrayActive(handleChangeLed(inputValue, "active"));
       }
     } else {
       setInputClassError("guess_input_error");
@@ -76,7 +87,7 @@ function App() {
     setNumber("");
     setInfoMessage("");
     actionsSendButton(false, textInfoMessage, "hidden");
-    handleChangeLed("0", "active");
+    setArrayActive(handleChangeLed("0", "active"));
     getNumber();
   };
 
@@ -86,7 +97,7 @@ function App() {
       <Styled.Container>
         <Header />
         <InfoMessage infoMessage={infoMessage} textColor={textColor} />
-        <Leds />
+        <Leds arrayActive={arrayActive} />
         <Footer
           handleNewGame={handleNewGame}
           handleChangeInput={handleChangeInput}

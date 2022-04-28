@@ -1,115 +1,124 @@
 export const handleChangeLed = (data, type) => {
   const dataStringfy = data.toString();
-  const containerSegments = document.getElementById("container_segments");
-  containerSegments.innerText = "";
+  let array = [];
 
   const handleIndentifyNumber = (data, type) => {
     if (data === "1") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment"></div>
-      <div id="segment-g" class="segment"></div>
-      </div>
-      `;
+      let object01 = {
+        a: "not_active",
+        b: type,
+        c: type,
+        d: "not_active",
+        e: "not_active",
+        f: "not_active",
+        g: "not_active",
+      };
+      array.push(object01);
     } else if (data === "2") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment ${type}"></div>
-      <div id="segment-f" class="segment"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object02 = {
+        a: type,
+        b: type,
+        c: "not_active",
+        d: type,
+        e: type,
+        f: "not_active",
+        g: type,
+      };
+      array.push(object02);
     } else if (data === "3") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object03 = {
+        a: type,
+        b: type,
+        c: type,
+        d: type,
+        e: "not_active",
+        f: "not_active",
+        g: type,
+      };
+      array.push(object03);
     } else if (data === "4") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object04 = {
+        a: "not_active",
+        b: type,
+        c: type,
+        d: "not_active",
+        e: "not_active",
+        f: type,
+        g: type,
+      };
+      array.push(object04);
     } else if (data === "5") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object05 = {
+        a: type,
+        b: "not_active",
+        c: type,
+        d: type,
+        e: "not_active",
+        f: type,
+        g: type,
+      };
+      array.push(object05);
     } else if (data === "6") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment ${type}"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object06 = {
+        a: type,
+        b: "not_active",
+        c: type,
+        d: type,
+        e: type,
+        f: type,
+        g: type,
+      };
+      array.push(object06);
     } else if (data === "7") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment"></div>
-      <div id="segment-g" class="segment"></div>
-      </div>`;
+      let object07 = {
+        a: type,
+        b: type,
+        c: type,
+        d: "not_active",
+        e: "not_active",
+        f: "not_active",
+        g: "not_active",
+      };
+      array.push(object07);
     } else if (data === "8") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment ${type}"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object08 = {
+        a: type,
+        b: type,
+        c: type,
+        d: type,
+        e: type,
+        f: type,
+        g: type,
+      };
+      array.push(object08);
     } else if (data === "9") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment"></div>
-      <div id="segment-e" class="segment"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment ${type}"></div>
-      </div>`;
+      let object09 = {
+        a: type,
+        b: type,
+        c: type,
+        d: "not_active",
+        e: "not_active",
+        f: type,
+        g: type,
+      };
+      array.push(object09);
     } else if (data === "0") {
-      return `<div data-testid="div_segments">
-      <div id="segment-a" class="segment ${type}"></div>
-      <div id="segment-b" class="segment ${type}"></div>
-      <div id="segment-c" class="segment ${type}"></div>
-      <div id="segment-d" class="segment ${type}"></div>
-      <div id="segment-e" class="segment ${type}"></div>
-      <div id="segment-f" class="segment ${type}"></div>
-      <div id="segment-g" class="segment"></div>
-      </div>`;
+      let object00 = {
+        a: type,
+        b: type,
+        c: type,
+        d: type,
+        e: type,
+        f: type,
+        g: "not_active",
+      };
+      array.push(object00);
     }
   };
 
   for (let i = 0; i < dataStringfy.length; i++) {
-    const div = document.getElementById("container_segments");
-    div.innerHTML += handleIndentifyNumber(dataStringfy[i], type);
+    handleIndentifyNumber(dataStringfy[i], type);
   }
+
+  return array;
 };

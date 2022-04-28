@@ -65,6 +65,9 @@ export const GuessInput = styled.input`
   &:focus {
     border: 1px solid #ff6600;
   }
+  &.guess_input_error {
+    border: 1px solid #cc3300;
+  }
 `;
 
 export const ContainerInputButton = styled.div`

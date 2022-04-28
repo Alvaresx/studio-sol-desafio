@@ -23,7 +23,7 @@ function Footer({
         </Styled.ContainerRestartButton>
         <Styled.ContainerInputButton>
           <Styled.GuessInput
-            className={`guess_input ${inputClassError}`}
+            className={inputClassError}
             placeholder="Digite o palpite"
             value={inputValue}
             onKeyPress={(e) => isNumber(e)}

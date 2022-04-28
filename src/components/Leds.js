@@ -1,19 +1,21 @@
 import React from "react";
 import * as Styled from "../styles/style";
 
-function Leds() {
+function Leds({ arrayActive }) {
   return (
     <>
       <Styled.ContainerSegments id="container_segments">
-        <div>
-          <Styled.Segment className="segment_a active" />
-          <Styled.Segment className="segment_b active" />
-          <Styled.Segment className="segment_c active" />
-          <Styled.Segment className="segment_d active" />
-          <Styled.Segment className="segment_e active" />
-          <Styled.Segment className="segment_f active" />
-          <Styled.Segment className="segment_g not_active" />
-        </div>
+        {arrayActive.map((item, index) => (
+          <div key={index}>
+            <Styled.Segment className={`segment_a ${item.a}`} />
+            <Styled.Segment className={`segment_b ${item.b}`} />
+            <Styled.Segment className={`segment_c ${item.c}`} />
+            <Styled.Segment className={`segment_d ${item.d}`} />
+            <Styled.Segment className={`segment_e ${item.e}`} />
+            <Styled.Segment className={`segment_f ${item.f}`} />
+            <Styled.Segment className={`segment_g ${item.g}`} />
+          </div>
+        ))}
       </Styled.ContainerSegments>
     </>
   );
