@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import App from "../App";
 
 const getSegments = (number, arrayActive) => {
+  render(<App />);
   const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
   const sendButtonElement = screen.getByText(/Enviar/i);
   const segmentA = screen.getByTestId("segment_a");
@@ -79,8 +80,85 @@ describe("App.js", () => {
   });
 
   test("should render the number one on the leds", () => {
-    render(<App />);
-    let array = [
+    let array01 = [
+      "not_active",
+      "active",
+      "active",
+      "not_active",
+      "not_active",
+      "not_active",
+      "not_active",
+    ];
+    getSegments("1", array01);
+  });
+
+  test("should render the number two on the leds", () => {
+    let array02 = [
+      "active",
+      "active",
+      "not_active",
+      "active",
+      "active",
+      "not_active",
+      "active",
+    ];
+    getSegments("2", array02);
+  });
+
+  test("should render the number three on the leds", () => {
+    let array03 = [
+      "active",
+      "active",
+      "active",
+      "active",
+      "not_active",
+      "not_active",
+      "active",
+    ];
+    getSegments("3", array03);
+  });
+
+  test("should render the number four on the leds", () => {
+    let array04 = [
+      "not_active",
+      "active",
+      "active",
+      "not_active",
+      "not_active",
+      "active",
+      "active",
+    ];
+    getSegments("4", array04);
+  });
+
+  test("should render the number five on the leds", () => {
+    let array05 = [
+      "active",
+      "not_active",
+      "active",
+      "active",
+      "not_active",
+      "active",
+      "active",
+    ];
+    getSegments("5", array05);
+  });
+
+  test("should render the number six on the leds", () => {
+    let array06 = [
+      "active",
+      "not_active",
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+    ];
+    getSegments("6", array06);
+  });
+
+  test("should render the number seven on the leds", () => {
+    let array07 = [
       "active",
       "active",
       "active",
@@ -89,204 +167,45 @@ describe("App.js", () => {
       "not_active",
       "not_active",
     ];
-    getSegments("1", array);
-  });
-
-  test("should render the number two on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "2");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("not_active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("active");
-    expect(segmentF).toHaveClass("not_active");
-    expect(segmentG).toHaveClass("active");
-  });
-
-  test("should render the number three on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "3");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("not_active");
-    expect(segmentF).toHaveClass("not_active");
-    expect(segmentG).toHaveClass("active");
-  });
-
-  test("should render the number four on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "4");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("not_active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("not_active");
-    expect(segmentE).toHaveClass("not_active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("active");
-  });
-
-  test("should render the number five on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "5");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("not_active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("not_active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("active");
-  });
-
-  test("should render the number six on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "6");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("not_active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("active");
-  });
-
-  test("should render the number seven on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "7");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("not_active");
-    expect(segmentE).toHaveClass("not_active");
-    expect(segmentF).toHaveClass("not_active");
-    expect(segmentG).toHaveClass("not_active");
+    getSegments("7", array07);
   });
 
   test("should render the number eight on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "8");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("active");
+    let array08 = [
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+    ];
+    getSegments("8", array08);
   });
 
   test("should render the number nine on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "9");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("not_active");
-    expect(segmentE).toHaveClass("not_active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("active");
+    let array09 = [
+      "active",
+      "active",
+      "active",
+      "not_active",
+      "not_active",
+      "active",
+      "active",
+    ];
+    getSegments("9", array09);
   });
 
   test("should render the number zero on the leds", () => {
-    render(<App />);
-    const inputElement = screen.getByPlaceholderText(/Digite o palpite/i);
-    const sendButtonElement = screen.getByText(/Enviar/i);
-    const segmentA = screen.getByTestId("segment_a");
-    const segmentB = screen.getByTestId("segment_b");
-    const segmentC = screen.getByTestId("segment_c");
-    const segmentD = screen.getByTestId("segment_d");
-    const segmentE = screen.getByTestId("segment_e");
-    const segmentF = screen.getByTestId("segment_f");
-    const segmentG = screen.getByTestId("segment_g");
-    userEvent.type(inputElement, "0");
-    userEvent.click(sendButtonElement);
-    expect(segmentA).toHaveClass("active");
-    expect(segmentB).toHaveClass("active");
-    expect(segmentC).toHaveClass("active");
-    expect(segmentD).toHaveClass("active");
-    expect(segmentE).toHaveClass("active");
-    expect(segmentF).toHaveClass("active");
-    expect(segmentG).toHaveClass("not_active");
+    let array00 = [
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+      "active",
+      "not_active",
+    ];
+    getSegments("0", array00);
   });
 });
