@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 🎹🧡 Studio Sol - Desafio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📃 Sobre o projeto
 
-## Available Scripts
+Este é um projeto baseado no teste para o cargo de **Desenvolvedor Front-End**, na empresa **Studio Sol**.
+O objetivo do teste é criar uma aplicação de adivinhação de um determinado número, chamada **Qual é o número?**. 
 
-In the project directory, you can run:
+### 🛠️ Funcionamento da aplicação
 
-### `npm start`
+O projeto contém 4 componentes, são eles: **Header.js**, **InfoMessage.js**, **Leds.js** e **Footer.js**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+No componente **Header.js** são encontrados o título e o divider.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+No componentes **InfoMessage.js** é encontrada a mensagem informativa ao usuário sobre os palptes digitados.
 
-### `npm test`
+No componente **Leds.js** é feito um map na div com os sete segmentos, com um array recebido com os valores que ativam ou não os leds.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+No componente **Footer.js** são encontrados o input que o usuário irá digitar o seu palpite e o botão enviar. Há um botão de nova partida que inicia oculto e aparece apenas quando o usuário acerta o palpite ou caso haja algum erro no momento da requisição.
 
-### `npm run build`
+O arquivo **App.js** contém funções e estados que são passados como props para os componentes filhos. Nele, há um **useEffect** que executa a função getNumber(), que realiza a requisição e retorna um número.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O **input** contém um limite de **3 caracteres** e uma função de verificação de caracteres que permite que **apenas números** sejam digitados. Essa função é chamada no onKeyPress.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ao clicar no botão de **enviar**, a função **verifiyNumber()** é chamada e faz uma **validação**, caso o valor do input esteja vazio. Nesse caso, a borda do input ficar vermelha, representando um erro e não é feita mais nenhuma outra ação. Caso o input contenha um valor, as validações de comparação entre o valor digitado pelo usuário e o número obtido na requisição são feitos e o valor do input é setado para seu **estado inicial**. Em todos os casos, uma **mensagem de informação é setada** e a função **handleChangeLed()** é chamada, recebendo **dois parâmetros**: o n**úmero digitado pelo usuário** e uma **palavra representativa** que será utilizada para adicionar uma **classe responsável por colorir o led** de acordo com a situação. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As palavras são: 
+**"success"**: colore o led de **verde**; 
+**"error"**: colore o led de **vermeho**;
+**"active"**: colore o led de **cinza**.
 
-### `npm run eject`
+A função **handleChangeLed()** recebe dois parâmetros: o número digitado pelo usuário e uma palavra representativa que será utilizada para adicionar uma claase responsável por colorir o led de acordo com a situação.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+No início da função, o número digitado pelo usuário é passado para **string** e um **array vazio é criado** para receber os objetos referentes a cada número.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Um **for** percorre cada caractere do número digitado e chama a função **handleIdentifyNumber()**, que fazer a **verificação do número**. Quando o número é identificado, um **push** desse objeto ocorre no array criado inicialmente. Essa função **retorna o array** com as informações de cada caractere do número digitado pelo usuário.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Caso o jogador dê o **palpite correto ou haja um erro na requisição**, o botão de **nova partida** aparece e ao ser clicado, a função **handleNewGame()** é chamada, setando o número obtido pela requisição para vazio, setando a informação ao usuário para vazio, chamando a função handleChangeLed() com os parâmetro "0" e "active para iniciar o jogo com os leds formando o número zero e chamando a função **getNumber()** para obter um **novo número**.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🌟 Layout do projeto
 
-## Learn More
+![image](https://user-images.githubusercontent.com/56731050/165933261-5355e953-5a57-48dc-a6d0-23ddbff5c285.png)
+![image](https://user-images.githubusercontent.com/56731050/165933330-404c47a8-a8e8-4920-beea-b01973c3f514.png)
+![image](https://user-images.githubusercontent.com/56731050/165933403-c17d59df-73db-43e7-b159-859128bffc49.png)
+![image](https://user-images.githubusercontent.com/56731050/165933471-ad413359-2522-44e4-adf6-bdbfc71d35f1.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ⚙️ Tecnologias utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ReactJS
+- HTML
+- CSS
+- Javascript
+- Styled-Components **(permite escrever códigos CSS dentro do Javascript - CSS-in-JS)**
+- React Testing Library **(utilizado para testes unitários)**
 
-### Code Splitting
+### 🔎 Outras informações
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+O projeto foi criado pensando na **responsividade**, possibilitando ao usuário a utilização da aplicação partindo de qualquer **dispositivo**! 📱💻
 
-### Analyzing the Bundle Size
+Para executar o projeto, execute o comando `npm start`, acessando em http://localhost:3000 . </br>
+Para executar os testes do projeto, execute o comando `npm run test`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🙋‍♀️ Autor
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Mariana Alvares da Silva Pinto** - _Desenvolvedora Front-end_ </br>
+✉️ **E-mail**: mariana11areal@hotmail.com </br>
+📞 **Telefone/Whatsapp:** (24) 999987-7010 </br>
+<!-- 📌 **Link para acessar o projeto:** https://clone-login-rocketseat.vercel.app/ -->
