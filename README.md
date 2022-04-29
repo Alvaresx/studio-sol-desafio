@@ -3,7 +3,7 @@
 ## 📃 Sobre o projeto
 
 Este é um projeto baseado no teste para o cargo de **Desenvolvedor Front-End**, na empresa **Studio Sol**.
-O objetivo do teste é criar uma aplicação de adivinhação de um determinado número, chamada **Qual é o número?**. 
+O objetivo do teste é criar uma aplicação de adivinhação de um determinado número, chamada **Qual é o número?**.
 
 ### 🛠️ Funcionamento da aplicação
 
@@ -21,10 +21,10 @@ O arquivo **App.js** contém funções e estados que são passados como props pa
 
 O **input** contém um limite de **3 caracteres** e uma função de verificação de caracteres que permite que **apenas números** sejam digitados. Essa função é chamada no onKeyPress.
 
-Ao clicar no botão de **enviar**, a função **verifiyNumber()** é chamada e faz uma **validação**, caso o valor do input esteja vazio. Nesse caso, a borda do input ficar vermelha, representando um erro e não é feita mais nenhuma outra ação. Caso o input contenha um valor, as validações de comparação entre o valor digitado pelo usuário e o número obtido na requisição são feitos e o valor do input é setado para seu **estado inicial**. Em todos os casos, uma **mensagem de informação é setada** e a função **handleChangeLed()** é chamada, recebendo **dois parâmetros**: o n**úmero digitado pelo usuário** e uma **palavra representativa** que será utilizada para adicionar uma **classe responsável por colorir o led** de acordo com a situação. 
+Ao clicar no botão de **enviar**, a função **verifiyNumber()** é chamada e faz uma **validação**, caso o valor do input esteja vazio. Nesse caso, a borda do input ficar vermelha, representando um erro e não é feita mais nenhuma outra ação. Caso o input contenha um valor, as validações de comparação entre o valor digitado pelo usuário e o número obtido na requisição são feitos e o valor do input é setado para seu **estado inicial**. Em todos os casos, uma **mensagem de informação é setada** e a função **handleChangeLed()** é chamada, recebendo **dois parâmetros**: o n**úmero digitado pelo usuário** e uma **palavra representativa** que será utilizada para adicionar uma **classe responsável por colorir o led** de acordo com a situação.
 
-As palavras são: 
-**"success"**: colore o led de **verde**; 
+As palavras são:
+**"success"**: colore o led de **verde**;
 **"error"**: colore o led de **vermeho**;
 **"active"**: colore o led de **cinza**.
 
@@ -64,4 +64,3 @@ Para executar os testes do projeto, execute o comando `npm run test`.
 **Mariana Alvares da Silva Pinto** - _Desenvolvedora Front-end_ </br>
 ✉️ **E-mail**: mariana11areal@hotmail.com </br>
 📞 **Telefone/Whatsapp:** (24) 999987-7010 </br>
-<!-- 📌 **Link para acessar o projeto:** https://clone-login-rocketseat.vercel.app/ -->
