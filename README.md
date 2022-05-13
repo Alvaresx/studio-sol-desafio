@@ -64,3 +64,4 @@ Para executar os testes do projeto, execute o comando `npm run test`.
 **Mariana Alvares da Silva Pinto** - _Desenvolvedora Front-end_ </br>
 ✉️ **E-mail**: mariana11areal@hotmail.com </br>
 📞 **Telefone/Whatsapp:** (24) 999987-7010 </br>
+📌 **Link para acessar o projeto:** https://studio-sol-desafio.vercel.app/
